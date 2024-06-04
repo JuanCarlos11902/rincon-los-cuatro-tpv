@@ -1,0 +1,69 @@
+<ion-content color="dark">
+  <div class="container">
+    <ion-searchbar
+      placeholder="Buscar..."
+      show-clear-button="focus"
+      (ionInput)="filtrar($event)"
+    ></ion-searchbar>
+    <ion-grid *ngIf="listaProductos.length > 0">
+      <ion-row>
+        <ion-col size="6">
+          <ion-card *ngFor="let producto of listaPrimeraMitad; let i = index">
+            <div class="contenedor">
+              <ion-img [src]="producto.getImage()" class="imagenes"></ion-img>
+              <ion-badge
+                *ngIf="countProductsInOrder(producto) > 0"
+                class="counter"
+                >{{countProductsInOrder(producto)}}</ion-badge
+              >
+            </div>
+            <ion-label class="nombre">{{producto.getName()}}</ion-label>
+            <br />
+            <ion-label class="descripcion"
+              >{{producto.getDescription()}}</ion-label
+            >
+            <br />
+            <ion-button
+              expand="full"
+              shape="round"
+              color="success"
+              class="boton"
+              (click)="anadirProductosPrimeraMitad(i)"
+            >
+              <ion-icon name="cart-outline"></ion-icon>
+              {{producto.getPrice()}}€
+            </ion-button>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card *ngFor="let producto of listaSegundaMitad; let i = index">
+            <div class="contenedor">
+              <ion-img [src]="producto.getImage()" class="imagenes"></ion-img>
+              <ion-badge
+                class="counter"
+                *ngIf="countProductsInOrder(producto) > 0"
+                >{{countProductsInOrder(producto)}}</ion-badge
+              >
+            </div>
+            <ion-label class="nombre">{{producto.getName()}}</ion-label>
+            <br />
+            <ion-label class="descripcion"
+              >{{producto.getDescription()}}</ion-label
+            >
+            <br />
+            <ion-button
+              expand="full"
+              shape="round"
+              color="success"
+              class="boton"
+              (click)="anadirProductosSegundaMitad(i)"
+            >
+              <ion-icon name="cart-outline"></ion-icon>
+              {{producto.getPrice()}}€
+            </ion-button>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "Rincon los Cuatro TPV",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

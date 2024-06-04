@@ -1,0 +1,35 @@
+.custom-content{
+   background-image: url('../../assets/images/logobar.png');
+   background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-color: #222428;
+  align-items: center;
+  animation: descend 3s ease forwards;
+}
+
+@keyframes descend{
+  0% {
+    opacity: 0;
+    top: -100vh;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+ion-button{
+    position: absolute;
+    bottom: 15%;
+    transform: translate(-50%,0);
+    left: 50%;
+}
+
+#label{
+    font-size: 18px;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    text-align: center;
+}

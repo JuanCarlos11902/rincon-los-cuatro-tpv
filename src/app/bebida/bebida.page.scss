@@ -1,0 +1,51 @@
+
+.contenedor{
+    margin: 10px;
+    height: 125px;
+    position: relative;
+}
+.imagenes{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+ion-card{
+    height: 275px;
+    text-align: center;
+}
+.boton{
+    bottom: 0px;
+    margin: 10px;
+}
+ion-label{
+    margin-top: 10px;
+    background-attachment: fixed;
+    background-position: center;
+    align-items: center;
+}
+.nombre{
+    font-weight: bold;
+}
+.counter{
+    position: absolute;
+    left: -7px;
+    top: -8px;
+    background-color: gold;
+    color: white;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+.container{
+    background-image: url('../../assets/images/logobar.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    
+}
