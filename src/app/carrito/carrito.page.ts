@@ -95,6 +95,9 @@ export class CarritoPage implements OnInit {
       });
       let tableNumber = this.mesaSeleccionada;
       let description = await this.requestDescriptionOfOrder();
+      if (description === '') {
+        description = 'No hay ninguna descripción para este pedido';
+      }
       let body = {
         tableNumber: tableNumber,
         products: productsIds,
@@ -113,7 +116,7 @@ export class CarritoPage implements OnInit {
       );
       this.listaCarrito = [];
       this.servicio.vaciarCarrito();
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home/' + this.mesaSeleccionada]);
     } else {
       const alert = await this.allertController.create({
         header: 'Seleccione al menos un producto',

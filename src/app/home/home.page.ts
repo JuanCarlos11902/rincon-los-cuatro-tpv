@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CarritoService } from '../carrito.service';
 import { SocketService } from '../socket.service';
 
@@ -9,10 +9,12 @@ import { SocketService } from '../socket.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  listaMesas: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8];
-  itemSeleccionado: number = this.listaMesas[0];
-  constructor(private router: Router, private carrito: CarritoService, private socketService: SocketService){
-    this.carrito.setMesaSeleccionado(this.itemSeleccionado);
+  itemSeleccionado!: number;
+  constructor(private router: Router, private carrito: CarritoService, private socketService: SocketService, private route:ActivatedRoute){
+    this.route.params.subscribe(params => {
+      this.itemSeleccionado = params['numeroMesa'];
+      this.carrito.setMesaSeleccionado(this.itemSeleccionado);
+    })
   }
 
   cambiarItem(event: any) {

@@ -2,7 +2,7 @@
 
 <ion-content color="dark">
 <div class="container">
-  <ion-searchbar placeholder="Buscar..." show-clear-button="focus"></ion-searchbar>
+  <ion-searchbar placeholder="Buscar..." show-clear-button="focus" (ionInput)="filtrar($event)"></ion-searchbar>
 
   <ion-grid>
     <ion-row>

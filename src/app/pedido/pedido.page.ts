@@ -17,7 +17,7 @@ export class PedidoPage implements OnInit {
   constructor(private servicio: ProductService, private carritoService: CarritoService) {}
   ngOnInit(): void {
     this.servicio.get$ProductList().subscribe((products) => {
-      this.listaProductos = products;
+      this.listaProductos = products.filter((producto) => producto.getType() === 'Comida');
       this.rellenarListas();
     });
     this.servicio.getAllProducts();

@@ -15,13 +15,18 @@ export class BebidaPage implements OnInit {
   constructor(private servicio: ProductService, private carritoService: CarritoService) {}
   ngOnInit(): void {
     this.servicio.get$ProductList().subscribe((products) => {
-      this.listaBebidas = products;
+      this.listaBebidas = products.filter((producto) => producto.getType() === 'Bebida');
       this.rellenarListas();
     });
 
     if (this.listaBebidas.length == 0) {
       this.servicio.getAllProducts();
     }
+  }
+
+  filtrar(evento: any) {
+    this.servicio.filtrar(evento.detail.value);
+    this.rellenarListas();
   }
 
   rellenarListas() {

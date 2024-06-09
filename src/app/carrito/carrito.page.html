@@ -2,6 +2,7 @@
   <ion-list lines="inset" class="items-align-text-center" color="dark">
     <ion-item-sliding
       *ngFor="let producto of listaCarritoSinDuplicados; let i = index"
+      color="dark"
     >
       <ion-item color="dark">
         <ion-grid color="dark">
@@ -33,10 +34,9 @@
   </ion-list>
 </ion-content>
 
-<ion-content color="dark">
+<ion-content color="dark" *ngIf="listaCarritoSinDuplicados.length === 0">
   <div
     class="containerWithoutElements"
-    *ngIf="listaCarritoSinDuplicados.length === 0"
   >
     <ion-label class="labelSinProductos">¿Todavía no te decides?</ion-label>
     <br />

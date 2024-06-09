@@ -120,6 +120,7 @@ export class ProductService {
     this.productList.forEach((product, index) => {
       if (product.getId() === _id._id) {
         this.productList.splice(index, 1);
+        this.$productList.next(this.productList);
       }
     });
   }
