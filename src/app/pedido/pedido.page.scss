@@ -38,11 +38,15 @@ ion-label{
     font-size: 14px;
 }
 .container{
-    background-image: url('../../assets/images/logobar.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    width: 100%;
+    background-image: url("../../assets/images/logobar.png") no-repeat;
+    position: relative;
+  }
+  
+  .container::before{
+    background-color: rgba(0, 0, 0, 0.37);
+    content: '';
+    display: block;
     height: 100%;
-}
+    position: absolute;
+    width: 100%;
+  }
