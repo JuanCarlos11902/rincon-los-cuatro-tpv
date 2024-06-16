@@ -7,11 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class BackConnectionService {
 
+  private url:string = "https://floating-caverns-13553-5b60c3be1747.herokuapp.com/";
+
   constructor(private http: HttpClient) { 
 
   }
   getAllProducts(): Observable<any[]>{
-    return this.http.get<any[]>('http://localhost:3000/products/getAllIfAvailabilityIsTrue');
+    return this.http.get<any[]>(this.url + 'products/getAllIfAvailabilityIsTrue');
+  }
+
+  addOrder(body:any): Observable<any>{
+    return this.http.post<any>(this.url + 'order/add', body);
   }
 
 }

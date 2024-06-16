@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Producto } from './producto';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { BackConnectionService } from './back-connection.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class CarritoService {
   private formulario!: string;
   private $listaCarrito!: BehaviorSubject<Array<Producto>>
   
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private backService: BackConnectionService) {
     this.listaCarrito = new Array();
     this.$listaCarrito = new BehaviorSubject<Array<Producto>>(this.listaCarrito)
   }
@@ -67,7 +68,7 @@ export class CarritoService {
   }
 
   realizarPedido(body:any): Observable<any>{
-    return this.http.post("http://localhost:3000/order/add", body);
+    return this.backService.addOrder(body);
   }
 
 }

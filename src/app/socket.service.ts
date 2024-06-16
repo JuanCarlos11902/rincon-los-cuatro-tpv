@@ -6,7 +6,7 @@ import { ProductService } from './product.service';
   providedIn: 'root'
 })
 export class SocketService {
-  private socket = io('http://127.0.0.1:3000');
+  private socket = io('https://floating-caverns-13553-5b60c3be1747.herokuapp.com/');
 
   constructor(private servicio: ProductService) { 
     this.startListeningForProductAdded();
