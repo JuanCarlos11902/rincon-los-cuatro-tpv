@@ -15,7 +15,7 @@ export class BackConnectionService {
   getAllProducts(): Observable<any[]>{
     return this.http.get<any[]>(this.url + 'products/getAllIfAvailabilityIsTrue');
   }
-
+ 
   addOrder(body:any): Observable<any>{
     return this.http.post<any>(this.url + 'order/add', body);
   }
