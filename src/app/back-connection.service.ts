@@ -13,11 +13,24 @@ export class BackConnectionService {
 
   }
   getAllProducts(): Observable<any[]>{
-    return this.http.get<any[]>(this.url + 'products/getAllIfAvailabilityIsTrue');
+    try{
+      return this.http.get<any[]>(this.url + 'products/getAllIfAvailabilityIsTrue');
+    }
+    catch(e){ 
+      console.log(e);
+      return new Observable<any[]>();
+    }
+    
   }
  
   addOrder(body:any): Observable<any>{
-    return this.http.post<any>(this.url + 'order/add', body);
+    try{
+      return this.http.post<any>(this.url + 'order/add', body);
+    }
+    catch(e){
+      console.log(e);
+      return new Observable<any>();
+    }
   }
 
 }
